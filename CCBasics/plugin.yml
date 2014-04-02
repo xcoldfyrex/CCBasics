@@ -1,0 +1,17 @@
+name: CCBasics
+main: com.cfdigital.cc.ccbasics.CCBasics
+version: 0.1
+author: ColdFyre
+softdepend:
+  - Vault
+description: Basic tools for Charged Creepers Minecraft
+commands:
+  ban:
+    description: Bans a player or ip address
+    usage: /ban [-t <bantime in minutes>] <player|ip> [reason]
+  kick:
+    description: Kicks a player
+    usage: /kick <player> [reason]
+  whois:
+    description: Gets information about a player
+    usage: /whois <player>
