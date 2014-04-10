@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.cfdigital.cc.ccbasics.misc.MessageEnum;
+import com.cfdigital.cc.ccbasics.misc.Msg;
 
 public class Ban implements CommandExecutor {
 
@@ -18,7 +18,7 @@ public class Ban implements CommandExecutor {
 			if (sender.isOp()) {
 				// add ban code
 			} else {
-				sender.sendMessage(MessageEnum.ERR_INSUFFPERMISSION.toString());
+				sender.sendMessage(Msg.ERR_INSUFFPERMISSION.toString());
 			}
 		} else {
 			//add ban code

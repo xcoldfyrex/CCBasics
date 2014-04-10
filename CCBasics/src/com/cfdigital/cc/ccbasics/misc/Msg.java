@@ -1,10 +1,16 @@
 package com.cfdigital.cc.ccbasics.misc;
 
-public enum MessageEnum {
+public enum Msg {
 
 	ERR_INSUFFPARAMS {
 		public String toString() {
 			return "Insufficient parameters";
+		}		
+	},
+	
+	ERR_NOPLAYER {
+		public String toString() {
+			return "Player is not online";
 		}		
 	},
 	

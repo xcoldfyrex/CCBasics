@@ -12,6 +12,12 @@ commands:
   kick:
     description: Kicks a player
     usage: /kick <player> [reason]
+  msg:
+    aliases: [tell,say]
+    description: Privately message person
+    usage: /msg <person> <message>
   whois:
     description: Gets information about a player
     usage: /whois <player>
+    
+   
