@@ -32,6 +32,7 @@ public class Kick implements CommandExecutor {
 		String playerName = arg3[0].toLowerCase();
 		arg3[0] = "";
 		String kickMessage = Formatter.joinString(arg3);
+		if (kickMessage.trim().length() == 0) kickMessage = "Kicked from server";
 		Player player = plugin.getPlayer(playerName);
 		if (sender instanceof Player) {
 			if (sender.isOp()) {
@@ -49,7 +50,6 @@ public class Kick implements CommandExecutor {
 
 	private void doAction(CommandSender sender, Player player, String kickMessage) {
 		if (player == null) {
-			if (kickMessage.isEmpty()) kickMessage = "Kicked from server";
 			sender.sendMessage(Msg.ERR_NOPLAYER.toString());
 		} else {
 			player.kickPlayer(kickMessage);

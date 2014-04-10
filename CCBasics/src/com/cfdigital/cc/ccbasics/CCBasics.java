@@ -20,7 +20,7 @@ public class CCBasics extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		getCommand("ban").setExecutor(new Ban());
+		getCommand("ban").setExecutor(new Ban(this));
 		getCommand("kick").setExecutor(new Kick(this));
 		getCommand("whois").setExecutor(new Whois(this));
 
