@@ -16,6 +16,9 @@ commands:
     aliases: [tell,say]
     description: Privately message person
     usage: /msg <person> <message>
+  unban:
+    description: Unbans player
+    usage: /unban <player|ip>|uuid>
   whois:
     description: Gets information about a player
     usage: /whois <player>

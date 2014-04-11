@@ -1,8 +1,9 @@
-package com.cfdigital.wafflescentials.handlers;
+package com.cfdigital.cc.ccbasics.handlers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -32,12 +33,35 @@ public class BanHandler {
 		}
 	}
 
-	public static void removeBan (OfflinePlayer offlinePlayer) {
-
+	public static void removeBan (CommandSender sender, OfflinePlayer offlinePlayer) {
+		FileConfiguration banFile = openBanFile();
+		String playerUUID = offlinePlayer.getUniqueId().toString();
+		banFile.set("bans." + playerUUID , null);
+		try {
+			banFile.save(configFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static boolean isBanned (OfflinePlayer offlinePlayer) {
+		FileConfiguration banFile = openBanFile();
+		String playerUUID = offlinePlayer.getUniqueId().toString();
+		String banUUID = banFile.getString("bans." + playerUUID);
+		if (banUUID == null) return false;
+		long banExpires = banFile.getLong("bans." + playerUUID + ".expires");
+		if (banExpires == 0) return true;
+
 		return false;
+	}
+
+	public static String getBanReason (OfflinePlayer offlinePlayer) {
+		FileConfiguration banFile = openBanFile();
+		String playerUUID = offlinePlayer.getUniqueId().toString();
+		String banUUID = banFile.getString("bans." + playerUUID);
+		long banExpires = banFile.getLong("bans." + playerUUID + ".expires");
+		String banReason = banFile.getString("bans." + playerUUID + ".reason");
+		return banReason;
 	}
 
 	private static FileConfiguration openBanFile() {
@@ -56,7 +80,7 @@ public class BanHandler {
 		} catch (InvalidConfigurationException e) {
 			e.printStackTrace();
 		}
-		
+
 		return config;
 	}
 }

@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.cfdigital.cc.ccbasics.CCBasics;
-import com.cfdigital.cc.ccbasics.misc.Msg;
+import com.cfdigital.cc.ccbasics.constants.Msg;
 
 public class Whois implements CommandExecutor {
 

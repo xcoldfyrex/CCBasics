@@ -9,8 +9,8 @@ import org.bukkit.craftbukkit.libs.jline.internal.Log;
 import org.bukkit.entity.Player;
 
 import com.cfdigital.cc.ccbasics.CCBasics;
+import com.cfdigital.cc.ccbasics.constants.Msg;
 import com.cfdigital.cc.ccbasics.misc.Formatter;
-import com.cfdigital.cc.ccbasics.misc.Msg;
 
 public class Kick implements CommandExecutor {
 
@@ -24,7 +24,6 @@ public class Kick implements CommandExecutor {
 	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3) {
 		String command = arg1.getName().toLowerCase();
 		CommandSender sender = arg0;
-		if (sender == null) return false;
 		if (arg3.length == 0) {
 			sender.sendMessage(Msg.ERR_INSUFFPARAMS.toString());
 			return true;
